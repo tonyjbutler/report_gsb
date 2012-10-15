@@ -285,7 +285,11 @@ foreach($get_dept_codes as $row => $values) {
 	//Number of Standard Assignments
 	//Change for Moodle 2.3
 	$assignmentnum1 =  $DB->count_records('assignment', array('course'=>$courseid));
-	$assignmentnum2 =  $DB->count_records('assign', array('course'=>$courseid));
+	if ($dbman->table_exists('assign')) {
+		$assignmentnum2 =  $DB->count_records('assign', array('course'=>$courseid));
+	}else{
+		$assignmentnum2 = 0;
+	}
 	$assignmentnum=$assignmentnum1 + $assignmentnum2;
 	$updgsb->assignmentnum = $assignmentnum;
 
