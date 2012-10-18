@@ -24,7 +24,7 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version  = 2012070801;
+$plugin->version  = 2012070800;
 $plugin->requires = 2011120100;
 $plugin->component = 'report_gsb';
 $plugin->maturity = MATURITY_STABLE;
