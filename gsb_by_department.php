@@ -239,17 +239,22 @@ foreach($get_dept_codes as $row => $values) {
 	$level = '50';
 	$sql = "SELECT {context}.id FROM  {context}	WHERE {context}.contextlevel = '$level' AND {context}.instanceid = '$courseid'";
 	$context = $DB->get_records_sql($sql);
-
+	if(isset($updgsb)){
+	}else{
+	$updgsb = new stdClass(); 
+	}
 	foreach($context as $row => $values) {
 	
 		$contextid = $values->id;	
 
 		$enrolnum =  $DB->count_records('role_assignments', array('contextid'=>$contextid));
+
 		$updgsb->id = $gsbid;
 		$updgsb->enrolnum = $enrolnum;
 		if ($DB->record_exists('block_gsb_content', array('id' => $updgsb->id))) {
 		$DB->update_record('block_gsb_content', $updgsb); 
-		} 
+		}
+ 
 
 	}
 		
@@ -422,8 +427,11 @@ foreach($get_dept_codes as $row => $values) {
 										 )AND r.roleid=5
 										 AND r.userid = u.id");
  
+	if($nostudent>0){
 	$studentviews = round($studentviewsobj->views / $nostudent->students);
-	
+	}else{
+	$studentviews = 0;
+	}
 	
 	if($config->studentviews > $studentviews) {
 
