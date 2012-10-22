@@ -63,7 +63,9 @@ if($config->subcategories == 0) {
 	//Once medals are set from gsb_by_department.php
 if (ISSET($submitted)) {
 
-	$sql = "SELECT c.id, g.gsboverride FROM {course}, {block_gsb_content} g JOIN {course} c ON c.id = g.ids WHERE {course}.category = " . $categoryid . " GROUP BY c.id";
+	$sql = "SELECT c.id, g.gsboverride 
+	FROM {course}, {block_gsb_content} g JOIN {course} c ON c.id = g.ids 
+	WHERE {course}.category = " . $categoryid . " ";
 	$get_dept_codes = $DB->get_records_sql($sql);
 
 

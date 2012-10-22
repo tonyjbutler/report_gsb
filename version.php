@@ -23,7 +23,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-
+//version number changes
 $plugin->version  = 2012070800;
 $plugin->requires = 2011120100;
 $plugin->component = 'report_gsb';
