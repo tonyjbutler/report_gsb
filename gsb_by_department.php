@@ -155,7 +155,7 @@ foreach($getdeptcodes as $row => $values) {
 	$deptname = $values->name;
 }
 
-$sql = "SELECT DISTINCT {course}.id, {course}.id
+$sql = "SELECT DISTINCT {course}.id
 FROM {user} INNER JOIN (({role_assignments} INNER JOIN {context} ON {role_assignments}.contextid = {context}.id) INNER JOIN ({course} INNER JOIN {course_categories} ON {course}.category = {course_categories}.id) ON {context}.instanceid = {course}.id) ON {user}.id = {role_assignments}.userid 
 WHERE category = $categoryid";
 $getcourseids = $DB->get_records_sql($sql);
@@ -426,8 +426,9 @@ foreach($get_dept_codes as $row => $values) {
 										 WHERE contextlevel=50 AND instanceid=l.course
 										 )AND r.roleid=5
 										 AND r.userid = u.id");
- 
-	if($nostudent>0){
+	
+
+	if($nostudent->students>0){
 	$studentviews = round($studentviewsobj->views / $nostudent->students);
 	}else{
 	$studentviews = 0;

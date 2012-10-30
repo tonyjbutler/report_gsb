@@ -96,6 +96,10 @@ if (ISSET($submitted)) {
 		}
 
 		if ($gsboverride != "" && $override != $current && $currentover != "yes") {
+		
+		if(!isset($updgsb)){
+			$updgsb = new stdClass;
+		}
 			switch ($override) {
 				case "":
 				case "remove":
