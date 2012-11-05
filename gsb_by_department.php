@@ -157,7 +157,8 @@ foreach($getdeptcodes as $row => $values) {
 
 $sql = "SELECT DISTINCT {course}.id
 FROM {user} INNER JOIN (({role_assignments} INNER JOIN {context} ON {role_assignments}.contextid = {context}.id) INNER JOIN ({course} INNER JOIN {course_categories} ON {course}.category = {course_categories}.id) ON {context}.instanceid = {course}.id) ON {user}.id = {role_assignments}.userid 
-WHERE category = $categoryid";
+WHERE category = $categoryid
+ORDER BY {course}.sortorder";
 $getcourseids = $DB->get_records_sql($sql);
 
 echo "</br>";
@@ -218,7 +219,7 @@ echo"<table border='1' cellspacing='0' cellpadding='2' width='100%'>
 $sql = "SELECT {block_gsb_content}.id AS gb, {course}.id, {course}.shortname, {course}.fullname, {block_gsb_content}.gsb, {block_gsb_content}.enrolnum, {block_gsb_content}.gsboverride
 		FROM  {course} INNER JOIN {block_gsb_content} ON {course}.id = {block_gsb_content}.ids
 		WHERE ((({course}.category)=$categoryid))
-		ORDER BY {course}.id;";
+		ORDER BY {course}.sortorder;";
 		
 $get_dept_codes = $DB->get_records_sql($sql);
 
