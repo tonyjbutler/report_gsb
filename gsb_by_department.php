@@ -877,7 +877,7 @@ foreach($get_dept_codes as $row => $values) {
 				<input type='hidden' name='courseid' value=$courseid>
 				<input type='hidden' name='gsb[$courseid][gsbid]' value=$gsbid>
 				<input type='hidden' name='categoryid' value=$categoryid>
-				<input type='hidden' name='gsb[$courseid][curentover]' value=$gsboverride>
+				<input type='hidden' name='gsb[$courseid][currentover]' value=$gsboverride>
 				";									
 }
 		

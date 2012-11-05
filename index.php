@@ -85,7 +85,7 @@ if (ISSET($submitted)) {
 			//override value
 			$override = $_POST['gsb'][$courseid]['override'];
 			//current override
-			$currentover = $_POST['gsb'][$courseid]['curentover'];
+			$currentover = $_POST['gsb'][$courseid]['currentover'];
 		} else {
 			$gsboverride = "";
 			$current = "";
