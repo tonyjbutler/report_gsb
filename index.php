@@ -171,14 +171,14 @@ if($config->subcategories == '1') {
 	
 	$totalcourses = $DB->get_records_sql("SELECT {course}.id, {role_assignments}.roleid, Count({role_assignments}.roleid) AS studentsenrolled
 										FROM {user} INNER JOIN (({role_assignments} INNER JOIN {context} ON {role_assignments}.contextid = {context}.id) INNER JOIN ({course} INNER JOIN {course_categories} ON {course}.category = {course_categories}.id) ON {context}.instanceid = {course}.id) ON {user}.id = {role_assignments}.userid
-										GROUP BY {role_assignments}.roleid, {course}.id
+										GROUP BY {course}.id
 										ORDER BY Count({role_assignments}.roleid)");	
 } else {
 
 	$totalcourses = $DB->get_records_sql("SELECT {course}.id, {role_assignments}.roleid, Count({role_assignments}.roleid) AS studentsenrolled
 										FROM {user} INNER JOIN (({role_assignments} INNER JOIN {context} ON {role_assignments}.contextid = {context}.id) INNER JOIN ({course} INNER JOIN {course_categories} ON {course}.category = {course_categories}.id) ON {context}.instanceid = {course}.id) ON {user}.id = {role_assignments}.userid
 										WHERE ((({course_categories}.depth)=1))
-										GROUP BY {role_assignments}.roleid, {course}.id
+										GROUP BY {course}.id
 										ORDER BY Count({role_assignments}.roleid)");
 								 						 
 }							 
