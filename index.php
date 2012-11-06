@@ -214,8 +214,6 @@ if($total_medals >0) {
 	$indev_perc_form = 0;
 	
 }
-		
-$total = $gold_total + $silver_total + $bronze_total + $indev_count;
 
 $table = "<div align='center'>
 			<table style='text-align: left; width: 20%;' border='0' cellpadding='2' cellspacing='2'>
